@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+//字符串+转义字符
+//字符串就是一串字符——用双引号引起来的一串字符串字面值
+//字符串在结尾的位置隐藏了一个\0 的字符
+//字符串的结束标志是\0
+//int main()
+//{
+//	"abcdef";
+//	"hello";
+//	return 0;
+//}
+
+//int main()
+//{
+//	//字符数组——数组是一组相同类型的元素
+//	char arr[] = "hello";
+//	return 0;
+//    //调试后用监视窗口看"hello"有六个元素，其中第六个为\0
+//}
+
+int main()
+{
+	char arr1[] = "abc";
+	char arr2[] = { 'a', 'b', 'c','\0'};
+	char arr3[] = { 'a', 'b', 'c'};
+//printf("%s\n", arr1);
+//printf("%s\n", arr2);
+//求字符串长度
+	printf("%d\n", strlen(arr1));
+	printf("%d\n", strlen(arr2));
+	printf("%d\n", strlen(arr3));//arr3打印的为随机值
+//int len = strlen("abc");//string length
+//用strlen会产生警告：strlen为定义  此时只需要应用头文件include <string.h>就可
+//发现求出来结果为3，即\0为结束的标志 但在计算字符串长度时不算在内
+//printf("%d\n", len);
+	return 0;
+}
