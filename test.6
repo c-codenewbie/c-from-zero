@@ -1,0 +1,119 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+
+
+//选择语句
+//int main()
+//{
+//	int input = 0;//输入值
+//	printf("study hard?(1/0)\n");
+//	scanf("%d", &input);
+//	if (input == 1)
+//	{
+//		printf("good job\n");
+//	}
+//	else
+//	{
+//		printf("卖红薯\n");
+//	}
+//	return 0;
+//}
+
+//循环语句
+//int main()
+//{
+//	int line = 0;
+//	while (line < 30000)
+//	{
+//		printf("写代码:%d\n",line);
+//		line++;
+//	}
+//	if (line = 30000)
+//	{
+//		printf("good job\n");
+//	}
+//
+//
+//	return 0;
+//}
+
+//函数
+//int Add(int x, int y)
+//{
+//	int z = 0;
+//	z = x + y;
+//	return z;
+//}
+//int main()
+//{
+//	int num1 = 0;
+//	int num2 = 0;
+//	scanf("%d%d", &num1, &num2);
+//	//int sum = num1 + num2;
+//	//函数的方式解决
+//	int sum = Add(num1, num2);
+//	printf("%d\n", sum);
+//	return 0;
+//}
+
+//数组：一组相同类型的元素的集合
+//10个整形1-10存起来
+//int main()
+//{
+//	//数组用下标来访问
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	while (i < 10)
+//	{
+//		printf("%d", arr[i]);
+//		i++;
+//	}
+//	//char ch[5] = { 'a','b','c' };//不完全初始化，剩余的默认为0
+//	return 0;
+//}
+
+//操作符
+//算数操作符：+ - * / %
+//移位操作符：>>  <<  
+// 位操作符：& 按位与
+//           | 按位或
+//           ^ 按位异或
+//int main()
+//{
+	//int a = 9 / 2;
+	//float a = 9 / 2;
+	//float a = 9 / 2.0;//此时得到的为4.5
+	//int a = 9 % 2;// %代表取余
+	//printf("%d\n", a);
+	//printf("%f\n", a);
+	//return 0;
+//}
+
+//int main()
+//{
+//	int a = 2;
+//	int b = a << 1;//在二进制中00000010 左移一位
+//	printf("%d\n", b);
+//	return 0;
+//} 
+
+//sizeof 是一个操作符 不是函数
+//计算类型或者变量的大小
+int main()
+{
+	int arr[10] = { 0 };
+	printf("%d\n", sizeof(arr));//打印出的为40  因为数组有十个元素 而每个元素为int 输入 有四个字节
+	//计算的是数组的总数大小，单位是字节
+	printf("%d\n", sizeof(arr[0]));//第一个元素的大小
+	printf("%d\n", sizeof(arr) / sizeof(arr[0]));//打印出数组元素的个数
+	return 0;
+}
+
+
+//int main()
+//{
+//	int a = 10;
+//	//C语言中 0为假的，非0为真
+//	printf("%d", !a);
+//	return 0;
+//}
