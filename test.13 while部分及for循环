@@ -1,0 +1,117 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+
+//while 运用
+//int main()
+//{
+//	char passward[20] = { 0 };
+//	printf("请输入密码:");
+//	scanf("%s", passward);//字符串在scanf时不需要取地址符 因为字符串本身就是地址 
+//	printf("请确认密码（Y/N）:");
+//	//此时要清理缓冲区 因为在scanf输入密码时 输入的是密码加上回车键 如 123456\n
+//	//在读取时首先读取的是123456的密码部分 作为passward  后面剩下的\n 被下一个读取 即 被确认密码读取 直接读出n 即为确认失败
+//	//在清理后 就\n拿出来了 不会被下一个部分读取
+//
+//	//getchar();//处理多出的 \n 但是只能处理一个字符 若输如的密码为 123456 aabcdef\n 又会发生上诉的问题
+//	//此时我们应该使getchar（）一直作用 知道清楚了缓冲区里所有的内容
+//	int tmp = 0;
+//	while ((tmp = getchar()) != '\n')
+//	{
+//		;
+//	}//清理缓冲区中的多个字符
+//
+//	int ch = getchar();
+//	if (ch == 'Y')
+//	{
+//		printf("确认成功");
+//	}
+//	else
+//	{
+//		printf("确认失败");
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int ch;
+//	while ((ch = getchar()) != EOF)
+//	{
+//		if (ch < '0' || ch> '9')
+//			continue;
+//		
+//		putchar(ch);
+//		
+//	}
+//	return 0;
+//}
+
+//for循环
+//for(表达式1；表达式2；表达式3）
+//    初始化    判断     调整
+//int main()
+//{
+//	int i = 0;
+//	for (i = 1; i <= 10; i++)
+//	{
+//		if (i == 5)
+//			continue;//和while不同 虽然也是跳过了continue后面的执行语句 但for中执行了i++ 使得下一次的i值为6 可有继续输出
+//			//break;
+//		    
+//
+//		printf("%d ", i);
+//	}
+//	return 0;
+//}
+//一些建议
+//不可再for循环体内修改循环变量，防止for循环失去控制
+//建议for语句的循环控制变量的值采用“前闭后开区间”写法
+
+//for循环变种
+//int main()
+//{
+//	//判断部分的省略--判断部分恒为真
+//	for (;;)
+//	{
+//		printf("hehe");
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	//for (i = 0; i < 3; i++)
+//	for(;i<3;i++)//省略i=0
+//	{
+//		//for (j = 0; j < 3; j++)
+//		for(;j<3;j++)//省略j=0
+//		{
+//			printf("hehe\n");
+//		}//若没有j=0 这一项 在i等于0时 进入循环内部经过三次循环 j=3 出内部循环 当i=1 再进时 j依旧为3  不会再打印
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int x;
+//	int y;
+//	for (x = 0, y = 0; x < 2 && y < 5; x++, y++)
+//	{
+//		printf("hehe\n");
+//	}
+//	return 0;
+//}
+
+//一共有多少次循环
+//int main()
+//{
+//	int i = 0;
+//	int k = 0;
+//	for (i = 0, k = 0; k = 0; i++, k++)
+//		k++;
+//	return 0;
+//}
+//0次循环 里面的判断语句为赋值了 为假 不循环
