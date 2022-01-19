@@ -1,0 +1,66 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+////do while 循环
+//int main()
+//{
+//	int i = 1;
+//	do
+//	{
+//		if (i == 5)
+//			//break;
+//			continue;//和do while相似的现象
+//
+//		printf("%d ", i);
+//		i++;
+//	} while (i <= 10);
+//	return 0;
+//}
+//do while 循环至少执行一次
+
+
+//一些练习
+//1.计算n的阶乘
+//int main()
+//{
+//	int n = 0;
+//	int sum = 1;
+//	scanf("%d", &n);
+//	for (int i = 1; i < n; i++)
+//	{
+//		sum *= i;
+//	}
+//	printf("%d", sum);
+//	return 0;
+//}
+
+//2.计算1！+2！+...+10！ 
+//int main()
+//{
+//	int i = 1;
+//	int n = 1;
+//	int sum = 1;
+//	int ret = 0;
+//	for (n = 1; n <= 10; n++)
+//	{
+//		sum = 1;//计算阶乘之前 将sum置1；
+//		for (int i = 1; i <=n; i++)
+//		{
+//			sum *= i;
+//		}
+//		ret += sum;
+//	}
+//	printf("%d", ret);
+//	return 0;
+//}
+//改进
+int main()
+{
+	int i = 1, n = 1, sum = 1, ret = 0;
+	for (n = 1 ; n <= 10; n++)
+	{
+		sum *= n;
+		ret += sum;
+	}
+	printf("%d", ret);
+	return 0;
+}
