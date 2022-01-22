@@ -35,6 +35,9 @@
 //	return 0;
 //}
 //编写代码，演示多个字符从两端移动，向中间汇聚
+
+#include <string.h>
+#include <windows.h>  //sleep的头文件
 int main()
 {
 
@@ -48,10 +51,11 @@ int main()
 		arr2[left] = arr1[left];
 		arr2[right] = arr1[right];
 		printf("%s\n", arr2);
+		Sleep(1000);//使其逐个显示  睡眠1秒
+		system("cls");//清空屏幕
 		left++;
 		right--;
-		printf("%s\n", arr2);
 	}
-
+	printf("%s\n", arr2);
 	return 0;
 }
