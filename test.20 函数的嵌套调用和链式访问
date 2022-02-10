@@ -1,0 +1,58 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+//函数的嵌套调用和链式访问
+
+//void test3()
+//{
+//	printf("hello");
+//}
+//int test2()
+//{
+//	test3();
+//	return 0;
+//}
+//int main()
+//{
+//	test2();
+//	return 0;
+//}
+
+//int main()
+//{
+//	//int len = strlen("abc");
+//	//printf("%d", len);
+//	//printf("%d", strlen("abc"));//链式访问
+//
+//	//char arr1[20] = { 0 };
+//	//char arr2[] = "bit";
+//	//strcpy(arr1, arr2);
+//	//printf("%s\n", arr1);//原写法
+//	//printf("%s", strcpy(arr1, arr2));//链式访问
+//
+//	printf("%d", printf("%d", printf("%d", 43)));
+//	//printf返回值是打印在屏幕上的字符的个数
+//	return 0;
+//}
+
+int main()
+{
+	int a = 10;
+	int b = 20;
+	//函数声明一下
+	//一般写在头文件中 
+	int Add(int x, int y);
+	int c = Add(a, b);
+	printf("%d", c);
+	return 0;
+}
+//函数定义 将函数放在后面时 要在调用时声明
+int Add(int x, int y)
+{
+	return x + y;
+}
+
+
+头文件的作用 分工写法 及静态库的使用
