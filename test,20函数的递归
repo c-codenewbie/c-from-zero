@@ -1,0 +1,187 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <string.h>
+
+//函数的递归
+//程序调用自身的编程技巧
+//int main()
+//{
+//	printf("hello");
+//	main();
+//	return 0;
+//}
+
+//接受一个整形值（无符号），按照顺序打印它的每一位
+//例如 输入：1234 输出：1 2 3 4
+//void print(unsigned int n)
+//{
+//	if (n > 9)
+//	{
+//		print(n / 10);
+//	}
+//	printf("%d ", n % 10);
+//}
+//int main()
+//{
+//	unsigned int num = 0;
+//	scanf("%u", &num);//%u-无符号整形
+//	//递归-函数自己调用自己
+//	print(num);//print函数可以打印参数部分数字的每一位
+//	return 0;
+//}
+
+//递归的两个必要条件
+//1.存在限制条件，当满足这个限制条件的时候，递归便不再继续
+//2.每次递归调用之后越来越接近这个限制条件
+//仅仅是必要条件 满足这两个条件不一定对
+//例如
+////void test(int n)
+////{
+////	if (n < 10000)//会报错 stack overflow
+////		          //栈溢出
+////	{
+////		test(n + 1);
+////	}
+////}
+////int main()
+////{
+////	test(1);
+////	return 0;
+////}
+
+//故写递归代码时
+//递归层次不能太深
+
+//编写函数不允许创建临时变量，求字符串长度
+
+//求字符串长度
+//int my_strlen(char* str)
+//{
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr[] = "bit";
+//	//模拟实现一个strlen函数
+//	//printf("%d\n", strlen(arr));
+//	printf("%d\n", my_strlen(arr));
+//	return 0;
+//}
+
+//不含临时变量的方法
+//int my_strlen(char* str)
+//{
+//	if (*str != '\0')
+//		return 1 + my_strlen(str + 1);
+//	//不能写str++  后置++是先用后加
+//	else
+//		return 0;
+//}
+//int main()
+//{
+//	char arr[] = "bit";
+//	//模拟实现一个strlen函数
+//	//printf("%d\n", strlen(arr));
+//	printf("%d\n", my_strlen(arr));
+//	return 0;
+//}
+
+//递归与迭代
+//求n的阶乘
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int i = 0;
+//	int ret = 1;
+//	//迭代
+//	for (i = 1; i <= n; i++)
+//	{
+//		ret = ret * i;
+//	}
+//	printf("%d", ret);
+//	return 0;
+//}
+
+
+//int fac(int n)
+//{
+//	if (n <= 1)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return n * fac(n - 1);
+//	}
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = fac(n);
+//	printf("%d", ret);
+//	return 0;
+//}
+//有一些功能既可以用迭代也可以用递归
+
+//求第n个斐波那契数(不考虑溢出)
+//递归可求解 但效率太低
+//int count = 0;
+//int fib(int n)
+//{
+//	//统计第三个斐波那契数被计算的次数 验证重复计算量特别大
+//	if (n == 3)
+//		count++;
+//	if (n <= 2)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return fib(n - 1) + fib(n - 2);
+//		//效率太低 重复大量计算
+//	}
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = fib(n);
+//	printf("%d\n", ret);
+//	printf("第三个斐波那契数出现的次数：%d\n", count);
+//	return 0;
+//}
+
+//用循环来写
+//int fib(int n)
+//{
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//	while (n > 2)
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return c;
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = fib(n);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+//汉诺塔问题：
+//青蛙跳台阶的问题：
