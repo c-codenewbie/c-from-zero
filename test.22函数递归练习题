@@ -1,0 +1,207 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+//函数练习
+// 
+// 形参用数组
+//void test(int arr[])
+//{
+//	arr[0] = 1;
+//	arr[1] = 2;
+//}
+//int main()
+//{
+//	int arr[10] = {0};
+//	test(arr);
+//	return 0;
+//}
+
+//形参用指针
+//void test(int* p1, int* p2)
+//{
+//	*p1 = 1;
+//	*p2 = 2;
+//}
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	test(&a, &b);
+//	return 0;
+//}
+
+//用全局变量
+//int a = 0;
+//int b = 0;
+//void test()
+//{
+//	a = 1;
+//	b = 2;
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+
+
+//逗号表达式 括号里两个数的值取后一个数
+//exec( (v1,v2),(v3,v4),v5,v6 )
+//exec(    v2       v4  v5 v6 )//故 共四个参数
+
+
+//使用函数 打印乘法口诀表  行列可自行给定
+//void print_table(int n)
+//{
+//	int i = 0;
+//	for (i = 1; i <= n; i++)
+//	{
+//		int j = 0;
+//		for (j = 1; j <= i; j++)
+//		{
+//			printf("%d*%d=%d ", i, j, i * j);
+//		}
+//		printf("\n");
+//	}
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);//n行n列
+//	print_table(n);
+//	//起名最好能提现函数的功能
+//	return 0;
+//}
+
+//给出函数Fun()求Fun（2）的返回值
+//int Fun(int n)
+//{
+//	if (n == 5)
+//		return 2;
+//	else
+//		return 2 * Fun(n + 1);
+//}
+//int main()
+//{
+//	printf("%d", Fun(2));
+//	return 0;
+//}
+
+//栈区：局部变量 函数参数 调用函数时返回值等临时变量
+//堆区：动态内存分配
+//静态区：全局变量 静态变量
+
+
+
+//递归实现字符串逆序  不能调用库函数 
+
+//先正常实现 不使用递归
+//int my_strlen(char* str)//由于不能调用strlen 故功能需自己写函数实现
+//{
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//void reverse_string(char* str)
+//{
+//	int left = 0;
+//	int right = my_strlen(str) - 1;
+//	while(left < right)
+//	{
+//		char tmp = str[left];//str[lest]可以写成*(str+left) 下面同理
+//		str[left] = str[right];
+//		str[right] = tmp;
+//		left++;
+//		right--;
+//	}
+//}
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	reverse_string(arr);//数组名arr是数组arr首元素的地址
+//	printf("%s\n", arr);
+//	return 0;
+//}
+
+
+//用递归的方式
+//int my_strlen(char* str)//由于不能调用strlen 故功能需自己写函数实现
+//{
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//void reverse_string(char* str)
+//{
+//	char tmp = *str;
+//	int len = my_strlen(str);
+//	*str = *(str + len - 1);
+//	*(str + len - 1) = '\0';
+//	//判断条件
+//	if (my_strlen(str+1) >= 2)
+//	{
+//		reverse_string(str + 1);
+//	}
+//	*(str + len - 1) = tmp;
+//}
+//int main()
+//{
+//	char arr[] = "abcdefg";
+//	reverse_string(arr);//数组名arr是数组arr首元素的地址
+//	printf("%s\n", arr);
+//	return 0;
+//}
+
+//写一个函数 计算输入数的每一位之和
+//int DigitSum(int n)
+//{
+//	if (n > 9)
+//	{
+//		return DigitSum(n / 10) + n % 10;
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//int main()
+//{
+//	int num = 0;
+//	scanf("%d", &num);
+//	int sum = DigitSum(num);
+//	printf("%d", sum);
+//	return 0;
+//}
+
+//递归实现n的k次方
+double Pow(int n, int k)
+{
+	//Pow(n,k) = n*Pow(n,k-1)
+	if (k == 0)
+	{
+		return 1.0;
+	}
+	else if (k > 0)
+	{
+		return n * Pow(n, k - 1);
+	}
+	else
+	{
+		return 1.0 / (Pow(n, -k));
+	}
+}
+int main()
+{
+	int k = 0, n = 0;
+	scanf("%d %d", &n, &k);
+	double ret = Pow(n, k);
+	printf("%lf", ret);
+	return 0;
+}
